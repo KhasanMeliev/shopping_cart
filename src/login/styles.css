@@ -10,7 +10,7 @@
 form {
   width: 400px;
   height: 350px;
-  background-color: #d1306c;
+  background-color: #0a69ed;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -34,7 +34,7 @@ form .inputs input {
   height: 35px;
   border: none;
   outline: none;
-  color: #d1306c;
+  color: #0a69ed;
   text-indent: 10px;
   border-radius: 2px;
 }
@@ -42,7 +42,7 @@ form button {
   width: 200px;
   height: 40px;
   background-color: white;
-  color: #d1306c;
+  color: #0a69ed;
   font-size: 20px;
   border: none;
   cursor: pointer;
