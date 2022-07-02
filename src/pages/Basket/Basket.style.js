@@ -74,6 +74,7 @@ export const Price = styled.div`
   align-items: center;
   margin-left: 100px;
   box-sizing: border-box;
+  
   ${mobile.lg} {
     flex-direction: column;
     margin: 20px 0px;
