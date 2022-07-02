@@ -6,6 +6,7 @@ const Text = styled.p`
   font-size: ${({ fontSize }) => fontSize};
   text-align: ${({ textAlign }) => textAlign};
   font-weight: ${({ fontWeight }) => fontWeight};
+  margin: ${({ margin }) => margin};
   ${mobile.lg} {
     margin: 0;
   }

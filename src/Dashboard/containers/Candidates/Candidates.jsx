@@ -1,7 +1,8 @@
 import React from "react";
+import { Wrapper } from "./Candidates.style";
 
 const Candidates = () => {
-  return <div>Candidates</div>;
+  return <Wrapper></Wrapper>;
 };
 
 export default Candidates;

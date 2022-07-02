@@ -40,7 +40,7 @@ const Basket = () => {
             <Box key={prod.id}>
               <NameImg>
                 <Image src={prod.img} alt={prod.name} />
-                <Text fontSize="28px" fontWeight="bold" >
+                <Text fontSize="28px" fontWeight="bold">
                   {prod.name}
                 </Text>
               </NameImg>
@@ -74,15 +74,17 @@ const Basket = () => {
       )}
       <TotalPrice>
         <Heading color="white">Total Price - {sum} so'm </Heading>
-        <Button
-          width="300px"
-          height="45px"
-          color="#0a69ed"
-          backgroundColor="white"
-          fontSize="20px"
-        >
-          {sum === 0 ? "Biror narsa harid qiling" : "Buyurtma berish"}
-        </Button>
+        <a href="/register">
+          <Button
+            width="300px"
+            height="45px"
+            color="#0a69ed"
+            backgroundColor="white"
+            fontSize="20px"
+          >
+            {sum === 0 ? "Biror narsa harid qiling" : "Buyurtma berish"}
+          </Button>
+        </a>
       </TotalPrice>
     </Wrapper>
   );

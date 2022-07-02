@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 
 export const Form = styled.form`
   width: 400px;
-  height: 300px;
+  height: 540px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: white;
   display: flex;

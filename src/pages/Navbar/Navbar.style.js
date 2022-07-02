@@ -7,13 +7,15 @@ export const NavbarWrapper = styled(FlexBox)`
   height: 80px;
   background-color: #0a69ed;
   color: white;
+  flex-direction: row;
   justify-content: space-around;
+  position: relative;
+  z-index: 1;
 `;
 
 export const Logo = styled.div`
   font-size: 40px;
   font-weight: bold;
-  width: 60%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -24,7 +26,6 @@ export const Logo = styled.div`
 `;
 
 export const Price = styled.div`
-  width: 40%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -36,5 +37,4 @@ export const Price = styled.div`
     text-decoration: none;
     color: inherit;
   }
- 
 `;
