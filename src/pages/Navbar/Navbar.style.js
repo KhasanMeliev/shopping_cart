@@ -1,14 +1,16 @@
-.navbar {
+import styled from "styled-components";
+import { mobile } from "../../assets/sizes/sizes";
+import { FlexBox } from "../../components/FlexBox/FlexBox";
+
+export const NavbarWrapper = styled(FlexBox)`
   width: 100%;
   height: 80px;
   background-color: #0a69ed;
   color: white;
-  display: flex;
-  align-items: center;
   justify-content: space-around;
-}
+`;
 
-.logo {
+export const Logo = styled.div`
   font-size: 40px;
   font-weight: bold;
   width: 60%;
@@ -16,35 +18,23 @@
   display: flex;
   align-items: center;
   text-indent: 40px;
-}
-.basket_sum {
+  ${mobile.lg} {
+    font-size: 25px;
+  }
+`;
+
+export const Price = styled.div`
   width: 40%;
   height: 100%;
-  font-size: 15px;
   display: flex;
   align-items: center;
   gap: 20px;
   justify-content: flex-end;
   padding: 25px;
   box-sizing: border-box;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-h1 {
-  margin: 0;
-  
-}
-@media only screen and (max-width:1014px){
-  .logo{
-    width: 40%;
+  a {
+    text-decoration: none;
+    color: inherit;
   }
-  .basket_sum{
-    width: 60%;
-  }
-  h1{
-    font-size: 20px;
-  }
-}
+ 
+`;

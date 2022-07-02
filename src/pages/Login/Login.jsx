@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import "./styles.css";
+import Button from "../../components/Button/Button";
+import { FlexBox } from "../../components/FlexBox/FlexBox";
+import Heading from "../../components/Heading/Heading";
+import { Form, Wrapper } from "./Login.style";
 
 const Login = () => {
   const values = { name: "", email: "", password: "" };
@@ -18,18 +21,19 @@ const Login = () => {
       return false;
     } else {
       alert("your message succesfully sent");
+      console.log(...details);
       return true;
     }
   };
 
   return (
-    <div className="login">
-      <form
+    <Wrapper>
+      <Form
         action="https://formsubmit.co/khasanmeliev2@gmail.com"
         onSubmit={submitHandler}
       >
-        <h1>Login</h1>
-        <div className="inputs">
+        <Heading color="white">Login</Heading>
+        <FlexBox width="100%" gap="10px">
           <input
             type="text"
             placeholder="Name..."
@@ -56,10 +60,19 @@ const Login = () => {
             name="password"
             autoComplete="off"
           />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+        </FlexBox>
+        <Button
+          type="submit"
+          width="200px"
+          height="40px"
+          backgroundColor="white"
+          color="#0a69ed"
+          fontSize="20px"
+        >
+          Submit
+        </Button>
+      </Form>
+    </Wrapper>
   );
 };
 
