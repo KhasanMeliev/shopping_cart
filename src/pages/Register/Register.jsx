@@ -1,40 +1,34 @@
 import React, { useState } from "react";
-import { Box, Form, Inputs, Wrapper } from "./Register.style";
+import { Form, Inputs, Wrapper } from "./Register.style";
 import Heading from "../../components/Heading/Heading";
 import Text from "../../components/Text/Text";
 import Button from "../../components/Button/Button";
+import { useNavigate } from "react-router-dom";
+import authApi from "../../api/authApi";
 
 const Register = () => {
-  const values = {
-    full_name: "",
-    email: "",
-    phone_number: "",
+  const navigate = useNavigate();
+  const [details, setDetails] = useState({
+    username: "",
+    phoneNumber: "",
     password: "",
-    confirm_password: "",
+    confirmPassword: "",
+  });
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setDetails({ ...details, [e.target.name]: e.target.value });
   };
-  const [details, setDetails] = useState(values);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (details.full_name === "") {
-      alert("Ism xato!");
-      return false;
-    } else if (details.email === "") {
-      alert("Email xato!");
-      return false;
-    } else if (details.phone_number === "") {
-      alert("Telefon raqam xato!");
-      return false;
-    } else if (details.password === "") {
-      alert("Password xato!");
-      return false;
-    } else if (details.confirm_password !== details.password) {
-      alert("Passwordni qayta kiriting!");
-      return false;
-    } else {
-      console.log(details);
-      return true;
-    }
+    authApi
+      .register(details)
+      .then((res) => {
+        console.log(res.data);
+        navigate("/login");
+      })
+      .catch((err) => console.log(err.response.data));
   };
 
   return (
@@ -42,38 +36,23 @@ const Register = () => {
       <Form onSubmit={submitHandler}>
         <Heading margin="0">Ro'yxatdan o'tish</Heading>
         <Inputs>
-          <Text margin="0">Full Name</Text>
+          <Text margin="0">Username</Text>
           <input
             type="text"
-            placeholder="Full Name"
-            name="full_name"
+            placeholder="Username"
+            name="username"
             autoComplete="off"
-            value={details.full_name}
-            onChange={(e) => {
-              setDetails({ ...details, full_name: e.target.value });
-            }}
-          />
-          <Text margin="0">Email</Text>
-          <input
-            type="email"
-            placeholder="Email"
-            name="email"
-            autoComplete="off"
-            value={details.email}
-            onChange={(e) => {
-              setDetails({ ...details, email: e.target.value });
-            }}
+            value={details.username}
+            onChange={handleChange}
           />
           <Text margin="0">Phone Number</Text>
           <input
             type="tel"
             placeholder="99 999 99 99"
-            name="phone_number"
+            name="phoneNumber"
             autoComplete="off"
-            value={details.phone_number}
-            onChange={(e) => {
-              setDetails({ ...details, phone_number: e.target.value });
-            }}
+            value={details.phoneNumber}
+            onChange={handleChange}
           />
           <Text margin="0">Password</Text>
           <input
@@ -82,20 +61,16 @@ const Register = () => {
             name="password"
             autoComplete="off"
             value={details.password}
-            onChange={(e) => {
-              setDetails({ ...details, password: e.target.value });
-            }}
+            onChange={handleChange}
           />
           <Text margin="0">Confirm Password</Text>
           <input
             type="password"
             placeholder="Confirm Password"
-            name="confirm_password"
+            name="confirmPassword"
             autoComplete="off"
-            value={details.confirm_password}
-            onChange={(e) => {
-              setDetails({ ...details, confirm_password: e.target.value });
-            }}
+            value={details.confirmPassword}
+            onChange={handleChange}
           />
         </Inputs>
         <Button

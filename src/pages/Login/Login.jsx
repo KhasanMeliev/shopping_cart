@@ -1,28 +1,31 @@
 import React, { useState } from "react";
-import { Box, Form, Inputs, Wrapper } from "./Login.style";
+import { Form, Inputs, Wrapper } from "./Login.style";
 import Heading from "../../components/Heading/Heading";
 import Text from "../../components/Text/Text";
 import Button from "../../components/Button/Button";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import authApi from "../../api/authApi";
 
 const Login = () => {
-  const values = {
-    email: "",
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [details, setDetails] = useState({
+    phoneNumber: "",
     password: "",
-  };
-  const [details, setDetails] = useState(values);
+  });
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (details.email === "") {
-      alert("Email xato!");
-      return false;
-    } else if (details.password === "") {
-      alert("Password xato!");
-      return false;
-    } else {
-      console.log(details);
-      return true;
-    }
+    authApi
+      .login(details)
+      .then((res) => {
+        localStorage.setItem("token", res.data.user.token);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        dispatch({ type: "LOGIN", payload: res.data.user });
+        navigate("/");
+      })
+      .catch((err) => console.log(err.response.data));
   };
 
   return (
@@ -30,15 +33,15 @@ const Login = () => {
       <Form onSubmit={submitHandler}>
         <Heading margin="0">Kirish</Heading>
         <Inputs>
-          <Text margin="0">Email</Text>
+          <Text margin="0">Phone number</Text>
           <input
-            type="email"
-            placeholder="Email"
-            name="email"
+            type="tel"
+            placeholder="Phone Number"
+            name="phoneNumber"
             autoComplete="off"
-            value={details.email}
+            value={details.phoneNumber}
             onChange={(e) => {
-              setDetails({ ...details, email: e.target.value });
+              setDetails({ ...details, phoneNumber: e.target.value });
             }}
           />
 

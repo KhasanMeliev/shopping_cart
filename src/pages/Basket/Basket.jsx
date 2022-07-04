@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
-import { FlexBox } from "../../components/FlexBox/FlexBox";
 import Heading from "../../components/Heading/Heading";
 import Text from "../../components/Text/Text";
 import {
@@ -16,8 +16,8 @@ import {
 } from "./Basket.style";
 
 const Basket = () => {
-  const products = useSelector((state) => state.products);
-  const sum = useSelector((state) => state.sum);
+  const products = useSelector((state) => state.product.products);
+  const sum = useSelector((state) => state.product.sum);
 
   const dispatch = useDispatch();
 
@@ -74,7 +74,7 @@ const Basket = () => {
       )}
       <TotalPrice>
         <Heading color="white">Total Price - {sum} so'm </Heading>
-        <a href="/register">
+        <Link to="/login">
           <Button
             width="300px"
             height="45px"
@@ -84,7 +84,7 @@ const Basket = () => {
           >
             {sum === 0 ? "Biror narsa harid qiling" : "Buyurtma berish"}
           </Button>
-        </a>
+        </Link>
       </TotalPrice>
     </Wrapper>
   );

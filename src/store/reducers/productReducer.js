@@ -5,7 +5,7 @@ const initialState = {
   sum: 0,
 };
 
-const reducer = (state = initialState, action) => {
+const productReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_TO_BASKET":
       return {
@@ -42,4 +42,4 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export default productReducer;

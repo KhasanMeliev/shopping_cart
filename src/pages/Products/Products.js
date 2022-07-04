@@ -1,20 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../components/Button/Button";
-import { FlexBox } from "../../components/FlexBox/FlexBox";
 import Heading from "../../components/Heading/Heading";
 import Text from "../../components/Text/Text";
-import {
-  Box,
-  CountAmount,
-  Details,
-  FoodDrink,
-  Price,
-  Wrapper,
-} from "./Products.style";
+import { Box, CountAmount, Details, Price, Wrapper } from "./Products.style";
 
 const Products = () => {
-  const products = useSelector((state) => state.products);
+  const products = useSelector((state) => state.product.products);
 
   const dispatch = useDispatch();
 
