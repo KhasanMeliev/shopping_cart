@@ -1,12 +1,19 @@
-import products from "../../ProductsObj/productObj";
+// import products from "../../ProductsObj/productObj";
 
 const initialState = {
-  products: products,
+  products: [],
   sum: 0,
 };
 
 const productReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "GET_PRODUCTS":
+      return {
+        ...state,
+        products: action.payload.map((product) => {
+          return { ...product, id: product._id, amount: 0, added: false };
+        }),
+      };
     case "ADD_TO_BASKET":
       return {
         products: state.products.map((product) => {

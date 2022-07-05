@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+// import productApi from "../../api/productApi";
 import Button from "../../components/Button/Button";
 import Heading from "../../components/Heading/Heading";
 import Text from "../../components/Text/Text";
+import { getAllProducts } from "../../store/actions/productActions";
 import { Box, CountAmount, Details, Price, Wrapper } from "./Products.style";
 
 const Products = () => {
+  const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllProducts());
+  }, []);
 
   const handleAdd = (productId, price) => {
     dispatch({ type: "ADD_TO_BASKET", payload: { productId, price } });
@@ -19,9 +24,9 @@ const Products = () => {
 
   return (
     <Wrapper>
-      {products.map((product) => (
+      {products?.map((product) => (
         <Box key={product.id}>
-          <img src={product.img} alt={product.name} />
+          <img src={product.picture} alt={product.name} />
           <Details>
             <Heading textIndent="20px" margin="0">
               {product.name} {product.amount > 0 ? `- ${product.amount}` : ""}

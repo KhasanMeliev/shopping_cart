@@ -10,6 +10,7 @@ import authApi from "../../api/authApi";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const [details, setDetails] = useState({
     phoneNumber: "",
     password: "",
