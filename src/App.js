@@ -8,6 +8,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Basket from "./containers/Navbar/Basket/Basket";
 import Navbar from "./containers/Navbar/Navbar";
 
+
 const Main = () => (
   <>
     <Navbar />
