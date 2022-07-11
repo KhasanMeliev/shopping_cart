@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { mobile } from "../../assets/sizes/sizes";
-import { FlexBox } from "../../components/FlexBox/FlexBox";
+import { mobile } from "../../../assets/sizes/sizes";
+import { FlexBox } from "../../../components/FlexBox/FlexBox";
 
 export const Wrapper = styled.div`
   width: 90%;

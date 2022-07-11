@@ -56,7 +56,6 @@ export const Box = styled.div`
   width: 100%;
   height: 100px;
   background-color: green;
-  margin-top: 10px;
   display: flex;
   box-sizing: border-box;
   justify-content: space-between;
@@ -70,29 +69,6 @@ export const Box = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 100%;
+  width: 30%;
   height: 100%;
-  ${mobile.lg} {
-    width: 200px;
-    height: 200px;
-  }
-`;
-
-export const ItemName = styled.div`
-  width: 90%;
-  height: 30%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  svg {
-    font-size: 20px;
-    cursor: pointer;
-    &:hover {
-      transform: rotate(360deg);
-    }
-  }
-`;
-
-export const CountAmount = styled(FlexBox)`
-  flex-direction: row;
 `;

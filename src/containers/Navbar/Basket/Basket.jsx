@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import orderApi from "../../api/orderApi";
-import Button from "../../components/Button/Button";
-import Heading from "../../components/Heading/Heading";
-import Text from "../../components/Text/Text";
+import orderApi from "../../../api/orderApi";
+import Button from "../../../components/Button/Button";
+import Heading from "../../../components/Heading/Heading";
+import Text from "../../../components/Text/Text";
 import {
   Wrapper,
   Title,

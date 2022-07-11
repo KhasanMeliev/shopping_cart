@@ -1,19 +1,15 @@
 import React from "react";
-import { AiFillDelete } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux/es/exports";
-import Button from "../../components/Button/Button";
 import { FlexBox } from "../../components/FlexBox/FlexBox";
 import Text from "../../components/Text/Text";
 import {
-  Basket,
-  Box,
-  CountAmount,
-  DropdownContent,
-  Image,
-  ItemName,
-  Logo,
   NavbarWrapper,
+  Logo,
+  Basket,
+  DropdownContent,
+  Box,
+  Image,
 } from "./Navbar.style";
 
 const Navbar = () => {
@@ -54,34 +50,13 @@ const Navbar = () => {
             {products.map(
               (prod) =>
                 prod.added && (
-                  <Box key={prod.id}>
-                    <FlexBox width="30%">
-                      <Image src={prod.img} alt={prod.name} />
-                    </FlexBox>
-                    <FlexBox width="70%" height="100%">
-                      <ItemName>
-                        <Text fontSize="23px">{prod.name}</Text>
-                        <AiFillDelete />
-                      </ItemName>
-                      <CountAmount>
-                        <Button
-                          onClick={() => handleRemove(prod.id, prod.price)}
-                          width="30px"
-                          height="20px"
-                          fontSize="15px"
-                        >
-                          -
-                        </Button>
-                        <Text fontSize="18px">{prod.amount}</Text>
-                        <Button
-                          onClick={() => handleAdd(prod.id, prod.price)}
-                          width="30px"
-                          height="20px"
-                          fontSize="15px"
-                        >
-                          +
-                        </Button>
-                      </CountAmount>
+                  <Box>
+                    <Image
+                      src="https://media.istockphoto.com/photos/fresh-manti-picture-id518523704?k=20&m=518523704&s=612x612&w=0&h=h6yy8Bnwi7l2ORr18cRcw6aYhda5K0pfZcUEglkbKkE="
+                      alt={prod.name}
+                    />
+                    <FlexBox width="">
+
                     </FlexBox>
                   </Box>
                 )

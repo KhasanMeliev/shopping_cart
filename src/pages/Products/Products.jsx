@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import productApi from "../../api/productApi";
 import Button from "../../components/Button/Button";
 import Heading from "../../components/Heading/Heading";
 import Text from "../../components/Text/Text";
