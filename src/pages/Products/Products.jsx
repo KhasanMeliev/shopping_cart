@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { BiSearchAlt2 } from "react-icons/bi";
 import Button from "../../components/Button/Button";
 import { FlexBox } from "../../components/FlexBox/FlexBox";
 import Heading from "../../components/Heading/Heading";
@@ -10,6 +11,7 @@ import {
   CardDetails,
   CardMedia,
   CountAmount,
+  SearchIcon,
   Wrapper,
 } from "./Products.style";
 
@@ -30,13 +32,18 @@ const Products = () => {
 
   return (
     <Wrapper>
-      <input type="search" placeholder="Search..." />
+      <FlexBox row>
+        <input type="search" placeholder="Search..." />
+        <SearchIcon>
+          <BiSearchAlt2 />
+        </SearchIcon>
+      </FlexBox>
       <FlexBox row flexWrap="wrap" style={{ marginTop: "20px" }}>
         {products?.map((product) => (
           <Card key={product.id}>
             <CardMedia src={product.picture} alt={product.name} />
             <CardDetails>
-              <Heading >{product.name}</Heading>
+              <Heading>{product.name}</Heading>
               <FlexBox row gap="4px" justify="space-between">
                 <Heading>{product.price} so'm</Heading>
                 {product.amount === 0 ? (

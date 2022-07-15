@@ -16,13 +16,27 @@ export const Wrapper = styled.div`
     width: 350px;
     height: 40px;
     border: none;
-    border-radius: 8px;
+    border-radius: 8px 0px 0px 8px;
     outline: none;
     text-indent: 10px;
     color: ${colors.text.black};
+
+    ${mobile} {
+      width: 270px;
+    }
   }
 `;
-
+export const SearchIcon = styled.div`
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 0 8px 8px 0;
+  font-size: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 export const Card = styled.div`
   width: 330px;
   height: 400px;
@@ -33,7 +47,7 @@ export const Card = styled.div`
   background-color: white;
 
   ${mobile} {
-    width: 80%;
+    width: 90%;
   }
 `;
 
