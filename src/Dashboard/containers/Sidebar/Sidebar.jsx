@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { SidebarToggler, StyledLink, Wrapper } from "./Sidebar.style";
-import { BiMessageAltDetail } from "react-icons/bi";
 import IconToggler from "../../../assets/img/sidebar_icon.svg";
 import { FaUsers } from "react-icons/fa";
+import { BsFillPencilFill } from "react-icons/bs";
+import { AiFillPlusCircle } from "react-icons/ai";
 import Heading from "../../../components/Heading/Heading";
 import Text from "../../../components/Text/Text";
+import { colors } from "../../../assets/styles/colors";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  console.log(isOpen);
 
   return (
     <Wrapper>
@@ -16,17 +17,21 @@ const Sidebar = () => {
         <img src={IconToggler} alt="icon" />
       </SidebarToggler>
       {isOpen ? (
-        <Heading color="white">Admin</Heading>
+        <Heading color={colors.heading.white}>Admin</Heading>
       ) : (
-        <Heading color="white">A</Heading>
+        <Heading color={colors.heading.white}>A</Heading>
       )}
-      <StyledLink to="/admin/candidates">
+      <StyledLink to="/admin/orders">
         <FaUsers />
-        {isOpen && <Text size="sm">Orders</Text>}
+        {isOpen && <Text color={colors.text.white}>Orders</Text>}
       </StyledLink>
-      <StyledLink to="/admin/contacts">
-        <BiMessageAltDetail />
-        {isOpen && <Text size="sm">Messages</Text>}
+      <StyledLink to="/admin/editproducts">
+        <BsFillPencilFill />
+        {isOpen && <Text color={colors.text.white}>Edit Products</Text>}
+      </StyledLink>
+      <StyledLink to="/admin/createproducts">
+        <AiFillPlusCircle />
+        {isOpen && <Text color={colors.text.white}>Edit Products</Text>}
       </StyledLink>
     </Wrapper>
   );

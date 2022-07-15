@@ -26,15 +26,15 @@ const Login = () => {
         dispatch({ type: "LOGIN", payload: res.data.user });
         navigate("/");
       })
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => alert(err.response.data.message));
   };
 
   return (
     <Wrapper>
       <Form onSubmit={submitHandler}>
-        <Heading margin="0">Kirish</Heading>
+        <Heading>Kirish</Heading>
         <Inputs>
-          <Text margin="0">Phone number</Text>
+          <Text>Phone number</Text>
           <input
             type="tel"
             placeholder="Phone Number"
@@ -46,7 +46,7 @@ const Login = () => {
             }}
           />
 
-          <Text margin="0">Password</Text>
+          <Text>Password</Text>
           <input
             type="password"
             placeholder="Password"
@@ -68,7 +68,7 @@ const Login = () => {
         >
           Akkount yaratish
         </Button>
-        <Text fontSize="16px" margin="0">
+        <Text fontSize="16px">
           Akkountingiz yo'qmi?
           <a
             href="/register"

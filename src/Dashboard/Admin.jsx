@@ -1,7 +1,7 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
 import { Wrapper } from "./Admin.style";
 import Sidebar from "./containers/Sidebar/Sidebar";
+import { Outlet } from "react-router-dom";
 
 const Admin = () => {
   return (

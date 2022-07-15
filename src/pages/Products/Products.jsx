@@ -1,15 +1,22 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../components/Button/Button";
+import { FlexBox } from "../../components/FlexBox/FlexBox";
 import Heading from "../../components/Heading/Heading";
 import Text from "../../components/Text/Text";
-import { getAllProducts } from "../../store/actions/productActions";
-import { Box, CountAmount, Details, Price, Wrapper } from "./Products.style";
+import { getAllProducts } from "../../store/product/action";
+import {
+  Card,
+  CardDetails,
+  CardMedia,
+  CountAmount,
+  Wrapper,
+} from "./Products.style";
 
 const Products = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
-
+  console.log(products);
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
@@ -23,51 +30,50 @@ const Products = () => {
 
   return (
     <Wrapper>
-      {products?.map((product) => (
-        <Box key={product.id}>
-          <img src={product.picture} alt={product.name} />
-          <Details>
-            <Heading textIndent="20px" margin="0">
-              {product.name} {product.amount > 0 ? `- ${product.amount}` : ""}
-            </Heading>
-          </Details>
-          <Price>
-            <Heading textIndent="20px" fontSize="22px">
-              {product.price} so'm
-            </Heading>
-            {product.amount === 0 ? (
-              <Button
-                onClick={() => handleAdd(product.id, product.price)}
-                width="120px"
-                height="40px"
-                fontSize="16px"
-              >
-                Add to Cart
-              </Button>
-            ) : (
-              <CountAmount>
-                <Button
-                  onClick={() => handleRemove(product.id, product.price)}
-                  width="60px"
-                  height="40px"
-                  fontSize="16px"
-                >
-                  -
-                </Button>
-                <Text fontSize="20px">{product.amount}</Text>
-                <Button
-                  onClick={() => handleAdd(product.id, product.price)}
-                  width="60px"
-                  height="40px"
-                  fontSize="16px"
-                >
-                  +
-                </Button>
-              </CountAmount>
-            )}
-          </Price>
-        </Box>
-      ))}
+      <input type="search" placeholder="Search..." />
+      <FlexBox row flexWrap="wrap" style={{ marginTop: "20px" }}>
+        {products?.map((product) => (
+          <Card key={product.id}>
+            <CardMedia src={product.picture} alt={product.name} />
+            <CardDetails>
+              <Heading >{product.name}</Heading>
+              <FlexBox row gap="4px" justify="space-between">
+                <Heading>{product.price} so'm</Heading>
+                {product.amount === 0 ? (
+                  <Button
+                    onClick={() => handleAdd(product.id, product.price)}
+                    width="120px"
+                    height="40px"
+                    fontSize="16px"
+                  >
+                    Add to Cart
+                  </Button>
+                ) : (
+                  <CountAmount>
+                    <Button
+                      onClick={() => handleRemove(product.id, product.price)}
+                      width="40px"
+                      height="40px"
+                      fontSize="16px"
+                    >
+                      -
+                    </Button>
+                    <Text fontSize="20px">{product.amount}</Text>
+                    <Button
+                      onClick={() => handleAdd(product.id, product.price)}
+                      width="40px"
+                      height="40px"
+                      fontSize="16px"
+                    >
+                      +
+                    </Button>
+                  </CountAmount>
+                )}
+              </FlexBox>
+            </CardDetails>
+          </Card>
+        ))}
+      </FlexBox>
     </Wrapper>
   );
 };

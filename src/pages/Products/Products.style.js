@@ -1,47 +1,55 @@
 import styled from "styled-components";
-import { mobile } from "../../assets/sizes/sizes";
+import { colors } from "../../assets/styles/colors";
+import { mobile } from "../../assets/styles/sizes";
 import { FlexBox } from "../../components/FlexBox/FlexBox";
 
 export const Wrapper = styled.div`
-  width: 80%;
+  width: 100%;
   display: flex;
+  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  background-color: ${colors.background};
+  padding: 30px 40px;
+  box-sizing: border-box;
+  flex-direction: column;
+  input {
+    width: 350px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-indent: 10px;
+    color: ${colors.text.black};
+  }
 `;
 
-
-export const Box = styled.div`
+export const Card = styled.div`
   width: 330px;
-  height: 420px;
+  height: 400px;
   margin: 12px;
   display: flex;
   flex-direction: column;
-  color: black;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  img {
-    width: 100%;
-    height: 65%;
-  }
-  ${mobile.lg} {
+  background-color: white;
+
+  ${mobile} {
     width: 80%;
-  }
-  ${mobile.md} {
-    width: 90%;
   }
 `;
 
-export const Details = styled.div`
+export const CardMedia = styled.img`
   width: 100%;
-  height: 20%;
+  height: 60%;
+`;
+
+export const CardDetails = styled.div`
+  width: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
-`;
-export const Price = styled(FlexBox)`
-  width: 100%;
-  height: 15%;
-  flex-direction: row;
-  justify-content: space-between;
+  padding: 20px;
   box-sizing: border-box;
+  gap: 25px;
 `;
 
 export const CountAmount = styled(FlexBox)`

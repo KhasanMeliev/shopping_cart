@@ -1,5 +1,3 @@
-// import products from "../../ProductsObj/productObj";
-
 const initialState = {
   products: [],
   sum: 0,

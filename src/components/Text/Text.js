@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import { mobile } from "../../assets/sizes/sizes";
+import { colors } from "../../assets/styles/colors";
+import { mobile } from "../../assets/styles/sizes";
 
 const Text = styled.p`
-  color: ${({ color }) => color};
-  font-size: ${({ fontSize }) => fontSize};
+  color: ${colors.text.black};
+  font-size: ${({ fontSize }) => fontSize || "20px"};
   text-align: ${({ textAlign }) => textAlign};
-  font-weight: ${({ fontWeight }) => fontWeight};
-  margin: ${({ margin }) => margin};
-  ${mobile.lg} {
+  margin: 0;
+  ${mobile} {
     margin: 0;
   }
 `;

@@ -25,18 +25,17 @@ const Register = () => {
     authApi
       .register(details)
       .then((res) => {
-        console.log(res.data);
         navigate("/login");
       })
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => alert(err.response.data.message));
   };
 
   return (
     <Wrapper>
       <Form onSubmit={submitHandler}>
-        <Heading margin="0">Ro'yxatdan o'tish</Heading>
+        <Heading >Ro'yxatdan o'tish</Heading>
         <Inputs>
-          <Text margin="0">Username</Text>
+          <Text>Username</Text>
           <input
             type="text"
             placeholder="Username"
@@ -45,7 +44,7 @@ const Register = () => {
             value={details.username}
             onChange={handleChange}
           />
-          <Text margin="0">Phone Number</Text>
+          <Text>Phone Number</Text>
           <input
             type="tel"
             placeholder="99 999 99 99"
@@ -54,7 +53,7 @@ const Register = () => {
             value={details.phoneNumber}
             onChange={handleChange}
           />
-          <Text margin="0">Password</Text>
+          <Text>Password</Text>
           <input
             type="password"
             placeholder="Password"
@@ -63,7 +62,7 @@ const Register = () => {
             value={details.password}
             onChange={handleChange}
           />
-          <Text margin="0">Confirm Password</Text>
+          <Text>Confirm Password</Text>
           <input
             type="password"
             placeholder="Confirm Password"

@@ -1,11 +1,11 @@
 import React from "react";
 import { useEffect } from "react";
-import { MdDelete } from "react-icons/md";
+import { BsFillPencilFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { getHour } from "../../../utils/dateUtils";
 import Heading from "../../../components/Heading/Heading";
 import { getAllOrders } from "../../../store/order/action";
-import { Table, Wrapper } from "./Order.style";
+import { getHour } from "../../../utils/dateUtils";
+import { Table, Wrapper } from "./EditProduct.style";
 import Button from "../../../components/Button/Button";
 
 const getOrderAsString = (products) => {
@@ -14,7 +14,7 @@ const getOrderAsString = (products) => {
   );
 };
 
-const Order = () => {
+const EditProduct = () => {
   const dispatch = useDispatch();
   const orders = useSelector((state) => state.orders);
 
@@ -46,7 +46,7 @@ const Order = () => {
               <td>{getOrderAsString(order.products)}</td>
               <td>
                 <Button>
-                  <MdDelete />
+                  <BsFillPencilFill />
                 </Button>
               </td>
             </tr>
@@ -57,4 +57,4 @@ const Order = () => {
   );
 };
 
-export default Order;
+export default EditProduct;

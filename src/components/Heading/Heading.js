@@ -1,28 +1,27 @@
 import styled, { css } from "styled-components";
-import { mobile } from "../../assets/sizes/sizes";
+import { colors } from "../../assets/styles/colors";
+import { mobile } from "../../assets/styles/sizes";
 
 const headingSize = {
   sm: css`
-    font-size: 25px;
+    font-size: 24px;
   `,
   md: css`
-    font-size: 30px;
+    font-size: 26px;
   `,
   lg: css`
-    font-size: 40px;
+    font-size: 30px;
   `,
 };
 
 const Heading = styled.h1`
   ${({ size }) => headingSize[size || "md"]};
-  color: ${({ color }) => color};
-  text-indent: ${({ textIndent }) => textIndent};
+  color: ${({ color }) => color || colors.heading.black};
   text-align: ${({ align }) => align};
-  margin: ${({ margin }) => margin};
+  margin: 0;
 
-  ${mobile.lg} {
+  ${mobile} {
     font-size: 20px;
-    margin: 0;
   }
 `;
 
