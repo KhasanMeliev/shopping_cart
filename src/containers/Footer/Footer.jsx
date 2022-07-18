@@ -38,7 +38,7 @@ const Footer = () => {
           <FaGithub />
         </a>
       </Icons>
-      <Text>made by khasanmeliev</Text>
+      <Text size="sm">made by khasanmeliev</Text>
     </Wrapper>
   );
 };

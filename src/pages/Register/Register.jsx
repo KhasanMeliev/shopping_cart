@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import authApi from "../../api/authApi";
 import { colors } from "../../assets/styles/colors";
 import { Input } from "../../components/Input/Input";
+import swal from "sweetalert";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -27,9 +28,14 @@ const Register = () => {
     authApi
       .register(details)
       .then((res) => {
-        navigate("/login");
+        swal("", "Siz muvaffaqiyatli ro'yxatdan o'tdingiz!", "success");
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
       })
-      .catch((err) => alert(err.response.data.message));
+      .catch((err) => {
+        swal("", `${err.response.data.message}`, "error");
+      });
   };
 
   return (

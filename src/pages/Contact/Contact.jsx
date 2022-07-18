@@ -1,9 +1,8 @@
 import React from "react";
-import { colors } from "../../assets/styles/colors";
 import Button from "../../components/Button/Button";
 import Heading from "../../components/Heading/Heading";
 import { Input } from "../../components/Input/Input";
-import { Form, Inputs, InputsRow, Wrapper } from "./Contact.style";
+import { Form, Inputs, InputsRow, Phone, Wrapper } from "./Contact.style";
 
 const Contact = () => {
   return (
@@ -47,6 +46,9 @@ const Contact = () => {
           Send Message
         </Button>
       </Form>
+      <Phone>
+        <Heading>Telefon raqam: +998 91 519 ** **</Heading>
+      </Phone>
     </Wrapper>
   );
 };

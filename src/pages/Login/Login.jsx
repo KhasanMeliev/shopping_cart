@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import authApi from "../../api/authApi";
 import { colors } from "../../assets/styles/colors";
 import { Input } from "../../components/Input/Input";
+import swal from "sweetalert";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -26,9 +27,16 @@ const Login = () => {
         localStorage.setItem("token", res.data.user.token);
         localStorage.setItem("user", JSON.stringify(res.data.user));
         dispatch({ type: "LOGIN", payload: res.data.user });
-        navigate("/");
+        swal("", `${res.data.message}`, "success");
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       })
-      .catch((err) => alert(err.response.data.message));
+      .catch((err) => swal("", `${err.response.data.message}`, "error"));
+  };
+  const handleChange = (e) => {
+    e.preventDefault();
+    setDetails({ ...details, [e.target.name]: e.target.value });
   };
 
   return (
@@ -43,9 +51,7 @@ const Login = () => {
             name="phoneNumber"
             autoComplete="off"
             value={details.phoneNumber}
-            onChange={(e) => {
-              setDetails({ ...details, phoneNumber: e.target.value });
-            }}
+            onChange={handleChange}
             height="30px"
           />
 
@@ -56,9 +62,7 @@ const Login = () => {
             name="password"
             autoComplete="off"
             value={details.password}
-            onChange={(e) => {
-              setDetails({ ...details, password: e.target.value });
-            }}
+            onChange={handleChange}
             height="30px"
           />
         </Inputs>

@@ -4,11 +4,13 @@ import { mobile } from "../../assets/styles/sizes";
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
   background-color: ${colors.main};
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  padding: 40px 0px;
+  gap: 20px;
 `;
 export const Form = styled.div`
   width: 35%;
@@ -59,4 +61,14 @@ export const InputsRow = styled.div`
       width: auto;
     }
   }
+`;
+
+export const Phone = styled.div`
+  width: 40%;
+  height: 300px;
+  background-color: white;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

@@ -15,7 +15,7 @@ export const Icons = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
   a {
     &:nth-child(1) {
       color: #fb3958;

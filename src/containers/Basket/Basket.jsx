@@ -18,6 +18,7 @@ import { useNavigate } from "react-router-dom";
 import orderApi from "../../api/orderApi";
 import { getAllProducts } from "../../store/product/action";
 import { colors } from "../../assets/styles/colors";
+import swal from "sweetalert";
 
 const Basket = () => {
   const navigate = useNavigate();
@@ -58,13 +59,17 @@ const Basket = () => {
   const createOrder = (e) => {
     e.preventDefault();
     if (!isLoggedIn) {
-      alert("Buyurtma berish uchun avval saytga kirishingiz kerak!");
+      swal(
+        "",
+        "Buyurtma berish uchun avval saytga kirishingiz kerak!",
+        "error"
+      );
       navigate("/login");
     } else {
       orderApi
         .createOrder(orders)
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err.response.data));
+        .then((res) => swal("", `${res.data.message}`, "success"))
+        .catch((err) => swal("", `${err.response.data.message}`, "error"));
       dispatch(getAllProducts());
     }
   };

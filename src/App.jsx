@@ -11,6 +11,7 @@ import CreateProduct from "./Dashboard/containers/CreateProducts/CreateProduct";
 import Footer from "./containers/Footer/Footer";
 import Contact from "./pages/Contact/Contact";
 import About from "./pages/About/About";
+import EditModal from "./modal/EditProducts/EditModal";
 
 const Main = () => (
   <>
@@ -24,9 +25,11 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Main />} />
+      <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route exact path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="editModal" element={<EditModal />} />
       <Route path="/admin" element={<Admin />}>
         <Route index path="orders" element={<Order />} />
         <Route path="editproducts" element={<EditProduct />} />

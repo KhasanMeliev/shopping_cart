@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { BsFillPencilFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import Heading from "../../../components/Heading/Heading";
-import { getAllOrders } from "../../../store/order/action";
 import { getHour } from "../../../utils/dateUtils";
 import { Table, Wrapper } from "./EditProduct.style";
 import Button from "../../../components/Button/Button";
+import useToggle from "../../../hooks/useToggle";
+import { getAllProducts } from "../../../store/product/action";
+import { MdOutlineDeleteOutline } from "react-icons/md";
+import Modal from "../../../components/Modal/Modal";
+import EditModal from "../../../modal/EditProducts/EditModal";
 
 const getOrderAsString = (products) => {
   return products.map(
@@ -16,11 +20,20 @@ const getOrderAsString = (products) => {
 
 const EditProduct = () => {
   const dispatch = useDispatch();
-  const orders = useSelector((state) => state.orders);
+  const modal = useToggle();
+  const products = useSelector((state) => state.product.products);
+  const [product, setProduct] = useState({});
 
   useEffect(() => {
-    dispatch(getAllOrders());
+    dispatch(getAllProducts());
   }, []);
+
+  const handleEdit = (prod) => {
+    setProduct(prod);
+    modal.open();
+  };
+
+  const handleRemove = (product) => {};
 
   return (
     <Wrapper>
@@ -33,26 +46,32 @@ const EditProduct = () => {
             <th>Narxi</th>
             <th>Vaqti</th>
             <th>Ma'lumotlar</th>
-            <th></th>
+            <th>Edit/Delete</th>
           </tr>
         </thead>
         <tbody>
-          {orders?.map((order, index) => (
-            <tr key={order._id}>
+          {products?.map((product, index) => (
+            <tr key={product._id}>
               <td>{index + 1}</td>
-              <td>{order.user.username}</td>
-              <td>{order.totalPrice}</td>
-              <td>{getHour(order.createdAt)}</td>
-              <td>{getOrderAsString(order.products)}</td>
+              <td>{product.user.username}</td>
+              <td>{product.totalPrice}</td>
+              <td>{getHour(product.createdAt)}</td>
+              <td>{getOrderAsString(product.products)}</td>
               <td>
-                <Button>
+                <Button onClick={() => handleEdit(product)}>
                   <BsFillPencilFill />
+                </Button>
+                <Button onClick={() => handleRemove(product.id)}>
+                  <MdOutlineDeleteOutline />
                 </Button>
               </td>
             </tr>
           ))}
         </tbody>
       </Table>
+      <Modal isOpen={modal.isOpen} onClose={modal.close}>
+        <EditModal product={product} modal={modal} />
+      </Modal>
     </Wrapper>
   );
 };
