@@ -1,9 +1,11 @@
 import styled from "styled-components";
+import { colors } from "../../assets/styles/colors";
+import { mobile } from "../../assets/styles/sizes";
 
 export const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  background: #0a69ed;
+  background: ${colors.main};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,6 +23,10 @@ export const Form = styled.form`
   flex-direction: column;
   border-radius: 16px;
   padding: 20px;
+
+  ${mobile} {
+    width: 80%;
+  }
 `;
 
 export const Inputs = styled.div`
@@ -31,17 +37,5 @@ export const Inputs = styled.div`
   gap: 10px;
   p {
     font-weight: 500;
-  }
-  input {
-    height: 30px;
-    border: 0.5px solid rgb(171, 164, 164);
-    border-radius: 4px;
-    outline: none;
-    text-indent: 5px;
-    font-size: 15px;
-    font-family: cursive;
-    &:focus {
-      border: 1px solid #0a69ed;
-    }
   }
 `;

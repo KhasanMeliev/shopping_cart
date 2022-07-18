@@ -17,6 +17,7 @@ import Text from "../../components/Text/Text";
 import { useNavigate } from "react-router-dom";
 import orderApi from "../../api/orderApi";
 import { getAllProducts } from "../../store/product/action";
+import { colors } from "../../assets/styles/colors";
 
 const Basket = () => {
   const navigate = useNavigate();
@@ -74,7 +75,7 @@ const Basket = () => {
       top: 5,
       border: `2px solid ${theme.palette.background.paper}`,
       padding: "0 4px",
-      backgroundColor: "#0a69ed",
+      backgroundColor: `${colors.main}`,
     },
   }));
 
@@ -88,7 +89,11 @@ const Basket = () => {
       <FlexBox>
         <DropdownContent>
           {sum === 0 ? (
-            <Heading>Savatda hozircha hech nima yo'q</Heading>
+            <img
+              src="http://atlas-content-cdn.pixelsquid.com/stock-images/cartoon-boy-jack-searching-AEowwG1-600.jpg"
+              alt="nothing"
+              style={{ width: "100%" }}
+            />
           ) : (
             products.map(
               (prod) =>

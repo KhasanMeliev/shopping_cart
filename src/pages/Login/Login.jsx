@@ -6,6 +6,8 @@ import Button from "../../components/Button/Button";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import authApi from "../../api/authApi";
+import { colors } from "../../assets/styles/colors";
+import { Input } from "../../components/Input/Input";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -35,7 +37,7 @@ const Login = () => {
         <Heading>Kirish</Heading>
         <Inputs>
           <Text>Phone number</Text>
-          <input
+          <Input
             type="tel"
             placeholder="Phone Number"
             name="phoneNumber"
@@ -44,10 +46,11 @@ const Login = () => {
             onChange={(e) => {
               setDetails({ ...details, phoneNumber: e.target.value });
             }}
+            height="30px"
           />
 
           <Text>Password</Text>
-          <input
+          <Input
             type="password"
             placeholder="Password"
             name="password"
@@ -56,6 +59,7 @@ const Login = () => {
             onChange={(e) => {
               setDetails({ ...details, password: e.target.value });
             }}
+            height="30px"
           />
         </Inputs>
         <Button
@@ -74,7 +78,7 @@ const Login = () => {
             href="/register"
             style={{
               textDecoration: "none",
-              color: "#0a69ed",
+              color: `${colors.main}`,
               marginLeft: "5px",
             }}
           >

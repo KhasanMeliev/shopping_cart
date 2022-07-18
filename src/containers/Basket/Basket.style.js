@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../../assets/styles/colors";
 
 export const DropdownContent = styled.div`
   display: none;
@@ -28,7 +29,7 @@ export const BasketWrapper = styled.div`
 
   svg {
     font-size: 30px;
-    color: #0a69ed;
+    color: ${colors.main};
   }
 `;
 

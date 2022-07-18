@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { colors } from "../../../assets/styles/colors";
 
 export const Wrapper = styled.div`
   width: fit-content;
   height: 100vh;
-  background-color: #0a69ed;
+  background-color: ${colors.main};
   position: relative;
   box-sizing: border-box;
   padding: 0 20px;

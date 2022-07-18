@@ -5,6 +5,8 @@ import Text from "../../components/Text/Text";
 import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
 import authApi from "../../api/authApi";
+import { colors } from "../../assets/styles/colors";
+import { Input } from "../../components/Input/Input";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -33,43 +35,47 @@ const Register = () => {
   return (
     <Wrapper>
       <Form onSubmit={submitHandler}>
-        <Heading >Ro'yxatdan o'tish</Heading>
+        <Heading>Ro'yxatdan o'tish</Heading>
         <Inputs>
           <Text>Username</Text>
-          <input
+          <Input
             type="text"
             placeholder="Username"
             name="username"
             autoComplete="off"
             value={details.username}
             onChange={handleChange}
+            height="30px"
           />
           <Text>Phone Number</Text>
-          <input
+          <Input
             type="tel"
             placeholder="99 999 99 99"
             name="phoneNumber"
             autoComplete="off"
             value={details.phoneNumber}
             onChange={handleChange}
+            height="30px"
           />
           <Text>Password</Text>
-          <input
+          <Input
             type="password"
             placeholder="Password"
             name="password"
             autoComplete="off"
             value={details.password}
             onChange={handleChange}
+            height="30px"
           />
           <Text>Confirm Password</Text>
-          <input
+          <Input
             type="password"
             placeholder="Confirm Password"
             name="confirmPassword"
             autoComplete="off"
             value={details.confirmPassword}
             onChange={handleChange}
+            height="30px"
           />
         </Inputs>
         <Button
@@ -88,7 +94,7 @@ const Register = () => {
             href="/login"
             style={{
               textDecoration: "none",
-              color: "#0a69ed",
+              color: `${colors.main}`,
               marginLeft: "5px",
             }}
           >

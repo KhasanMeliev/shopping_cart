@@ -14,11 +14,13 @@ import {
   SearchIcon,
   Wrapper,
 } from "./Products.style";
+import { Input } from "../../components/Input/Input";
 
 const Products = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
   console.log(products);
+
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
@@ -33,7 +35,7 @@ const Products = () => {
   return (
     <Wrapper>
       <FlexBox row>
-        <input type="search" placeholder="Search..." />
+        <Input type="search" placeholder="Search..." />
         <SearchIcon>
           <BiSearchAlt2 />
         </SearchIcon>
