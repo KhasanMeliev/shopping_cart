@@ -3,7 +3,7 @@ import { colors } from "../../assets/styles/colors";
 
 export const Input = styled.input`
   width: ${({ width }) => width};
-  height: ${({ height }) => height};
+  height: ${({ height }) => height || "30px"};
   color: ${colors.text};
   outline: none;
   border: none;

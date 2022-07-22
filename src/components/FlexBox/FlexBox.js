@@ -7,6 +7,6 @@ export const FlexBox = styled.div`
   flex-direction: ${({ row }) => (row ? "row" : "column")};
   flex-wrap: ${({ flexWrap }) => flexWrap || "wrap"};
   gap: ${({ gap }) => gap};
-  width: ${({ width }) => width && "100%"};
+  width: ${({ width }) => width || "100%"};
   height: ${({ height }) => height};
 `;

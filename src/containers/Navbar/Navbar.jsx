@@ -9,6 +9,7 @@ import { NavbarWrapper } from "./Navbar.style";
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+
   return (
     <NavbarWrapper>
       <Heading>Shopping cart</Heading>
@@ -20,9 +21,7 @@ const Navbar = () => {
         ) : (
           <FlexBox row gap="10px">
             <Link to="/login">
-              <Button width="120px" height="35px">
-                Kirish
-              </Button>
+              <Button>Kirish</Button>
             </Link>
           </FlexBox>
         )}
