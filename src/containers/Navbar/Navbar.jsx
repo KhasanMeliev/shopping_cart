@@ -14,7 +14,7 @@ const Navbar = () => {
     <NavbarWrapper>
       <Heading>Shopping cart</Heading>
 
-      <FlexBox row gap="10px">
+      <FlexBox width="auto" row gap="10px">
         <Basket />
         {isLoggedIn === true ? (
           ""

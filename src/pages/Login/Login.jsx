@@ -52,7 +52,6 @@ const Login = () => {
             autoComplete="off"
             value={details.phoneNumber}
             onChange={handleChange}
-            height="30px"
           />
 
           <Text>Password</Text>
@@ -63,7 +62,6 @@ const Login = () => {
             autoComplete="off"
             value={details.password}
             onChange={handleChange}
-            height="30px"
           />
         </Inputs>
         <Button

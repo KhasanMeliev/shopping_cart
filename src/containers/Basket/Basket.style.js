@@ -22,7 +22,6 @@ export const BasketWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
-
   &:hover ${DropdownContent} {
     display: block;
   }

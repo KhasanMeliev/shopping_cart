@@ -51,7 +51,6 @@ const Register = () => {
             autoComplete="off"
             value={details.username}
             onChange={handleChange}
-            height="30px"
           />
           <Text>Phone Number</Text>
           <Input
@@ -61,7 +60,6 @@ const Register = () => {
             autoComplete="off"
             value={details.phoneNumber}
             onChange={handleChange}
-            height="30px"
           />
           <Text>Password</Text>
           <Input
@@ -71,7 +69,6 @@ const Register = () => {
             autoComplete="off"
             value={details.password}
             onChange={handleChange}
-            height="30px"
           />
           <Text>Confirm Password</Text>
           <Input
@@ -81,7 +78,6 @@ const Register = () => {
             autoComplete="off"
             value={details.confirmPassword}
             onChange={handleChange}
-            height="30px"
           />
         </Inputs>
         <Button

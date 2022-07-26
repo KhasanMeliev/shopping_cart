@@ -42,6 +42,9 @@ export const Inputs = styled.div`
     margin-top: 25px;
     text-indent: 10px;
     outline: none;
+    &:focus {
+      border: 0.5px solid #0a69ed;
+    }
   }
 `;
 

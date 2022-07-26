@@ -10,7 +10,7 @@ import productApi from "../../api/productApi";
 import { getAllProducts } from "../../store/product/action";
 import swal from "sweetalert";
 
-const EditModal = ({ product, modal }) => {
+const CreateProducts = ({ product, modal }) => {
   const [values, setValues] = useState({});
   const dispatch = useDispatch();
 
@@ -20,7 +20,7 @@ const EditModal = ({ product, modal }) => {
       dispatch(getAllProducts());
       modal.close();
     });
-    swal("", "Tahrirlash muvafaqqiyatli bajarildi!", "success");
+    swal("", "Mahsulot muvafaqqiyatli yaratildi!", "success");
   };
 
   const handleChange = (e) => {
@@ -41,7 +41,6 @@ const EditModal = ({ product, modal }) => {
           placeholder="Mahsulot nomi"
           name="name"
           autoComplete="off"
-          defaultValue={product.name}
           onChange={handleChange}
         />
 
@@ -51,7 +50,6 @@ const EditModal = ({ product, modal }) => {
           placeholder="Mahsulot Narxi"
           name="price"
           autoComplete="off"
-          defaultValue={product.price}
           onChange={handleChange}
         />
         <Text>Mahsulot Surati </Text>
@@ -60,7 +58,6 @@ const EditModal = ({ product, modal }) => {
           placeholder="Mahsulot Surati"
           name="picture"
           autoComplete="off"
-          defaultValue={product.picture}
           onChange={handleChange}
         />
         <Text>Mahsulot Tavsifi </Text>
@@ -69,22 +66,15 @@ const EditModal = ({ product, modal }) => {
           placeholder="Mahsulot Tavsifi"
           name="description"
           autoComplete="off"
-          defaultValue={product.description}
           onChange={handleChange}
         />
       </FlexBox>
-      <FlexBox
-        row
-        width="60%"
-        justify="space-between"
-        style={{ marginTop: "15px" }}
-      >
-        <Button width="40%" height="36px" type="submit">
-          Saqlash
-        </Button>
-      </FlexBox>
+
+      <Button width="40%" height="36px" type="submit">
+        Yaratish
+      </Button>
     </Form>
   );
 };
 
-export default EditModal;
+export default CreateProducts;

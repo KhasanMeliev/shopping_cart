@@ -67,6 +67,7 @@ export const CardDetails = styled.div`
 `;
 
 export const CountAmount = styled(FlexBox)`
+  width: fit-content;
   gap: 5px;
   flex-direction: row;
 `;
